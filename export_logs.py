@@ -9,8 +9,8 @@ load_dotenv()
 
 AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
 AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION")
-LOG_GROUP = os.getenv("LOG_GROUP")
+AWS_DEFAULT_REGION = 'us-east-1'
+LOG_GROUP = 'LeancoreInfraStackProd-LeancorePortfolioReporterTaskleancoreportfolioreporterLogGroupD62FBEF1-V5zAjptjzyox'
 
 # Cliente de CloudWatch Logs
 print("Cliente de Cloudwath")
@@ -69,4 +69,5 @@ df = pd.DataFrame(events)
 df.to_csv("logs_export.csv", index=False)
 
 print(f"✅ Exportados {len(events)} logs del stream más reciente a logs_export.csv")
+
 
