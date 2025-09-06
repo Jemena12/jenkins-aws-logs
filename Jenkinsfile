@@ -6,13 +6,8 @@ pipeline {
         AWS_ACCESS_KEY_ID     = credentials('e14fc09e-c936-4630-8c3f-4b8fb76c87d52')
         AWS_SECRET_ACCESS_KEY = credentials('e03832c5-e0f4-415f-8fc8-133a95a9e996')
         AWS_DEFAULT_REGION    = 'us-east-1'
-        LOG_GROUP        = 'LeancoreInfraStackProd-LeancorePortfolioReporterTaskleancoreportfolioreporterLogGroupD62FBEF1-V5zAjptjzyox'   // cambia según tu caso
+        LOG_GROUP             = 'LeancoreInfraStackProd-LeancorePortfolioReporterTaskleancoreportfolioreporterLogGroupD62FBEF1-V5zAjptjzyox'
     }
-
-    //triggers {
-        // Ejecuta cada 5 minutos
-       // cron('H/5 * * * *')
-  //  }
 
     stages {
         stage('Checkout') {
