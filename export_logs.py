@@ -13,6 +13,7 @@ AWS_DEFAULT_REGION = os.getenv("AWS_DEFAULT_REGION")
 LOG_GROUP = os.getenv("LOG_GROUP")
 
 # Cliente de CloudWatch Logs
+print("Cliente de Cloudwath")
 logs = boto3.client(
     "logs",
     region_name=AWS_DEFAULT_REGION,
@@ -21,6 +22,7 @@ logs = boto3.client(
 )
 
 # 👉 Obtener el stream más reciente
+print("Obteniendo stream mas recientes")
 streams = logs.describe_log_streams(
     logGroupName=LOG_GROUP,
     orderBy="LastEventTime",
@@ -36,6 +38,7 @@ latest_stream = streams["logStreams"][0]["logStreamName"]
 print(f"📌 Último stream: {latest_stream}")
 
 # Obtener logs de ese stream
+print("Obteniendo Logs")
 events = []
 next_token = None
 
@@ -61,7 +64,9 @@ while True:
         break
 
 # Exportar a CSV
+print("Exportando CSV")
 df = pd.DataFrame(events)
 df.to_csv("logs_export.csv", index=False)
 
 print(f"✅ Exportados {len(events)} logs del stream más reciente a logs_export.csv")
+
